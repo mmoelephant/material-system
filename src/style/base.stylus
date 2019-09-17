@@ -1,0 +1,15 @@
+@import '../assets/font/font.css'
+body,p,h1
+    padding 0
+    margin 0
+    font-family MicrosoftYaHei
+body
+    background-color #F5F5F5
+::-webkit-input-placeholder
+	color #ccc
+:-moz-placeholder
+	color #ccc
+::-moz-placeholder
+	color #ccc
+:-ms-input-placeholder
+	color #ccc
