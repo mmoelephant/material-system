@@ -2,16 +2,16 @@
 <div>
 	<el-header class="header">
 		<div class="headerContainer">
-			<div class="systemIcon">
+			<div class="systemIcon" @click="backhome">
 				<img src="../public/img/logo.png">
 				<div class="systemName">材料申报与价格疑议提交平台</div>
 			</div>
 			<div class="loginMsg">
 				<div class="whoLogin">
-					<div class="avatar"><img src="../public/img/avatar.png"></div>
+					<div class="userphoto"><img src="../public/img/avatar.png"></div>
 					<div class="username">admin20134123</div>
 				</div>
-				<div class="signout">退出登录</div>
+				<div class="signout" @click="logout">退出登录</div>
 			</div>
 		</div>
 	</el-header>
@@ -50,6 +50,14 @@ export default {
 		route(val) {
 		}
 	},
+	methods:{
+		backhome(){
+			// this.$router.push('/')
+		},
+		logout(){
+			this.$router.push('/')
+		}
+	}
 }
 </script>
 <style lang="stylus">
@@ -72,6 +80,7 @@ export default {
 .systemIcon
 	display flex
 	align-items center
+	// cursor pointer
 .systemName
 	margin-left 10px
 	font-size 18px
@@ -85,6 +94,11 @@ export default {
 .whoLogin
 	display flex
 	align-items center
+.userphoto
+	width 38px
+	height 38px
+	img
+		width 100%
 .username
 	margin-left 10px
 .signout

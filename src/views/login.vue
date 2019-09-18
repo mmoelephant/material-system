@@ -1,139 +1,140 @@
 <template>
 <div class="loginPage">
     <div class="loginMain">
-		<div class='i'>
-			<div class='tab'>
-				<p @click='login_type="zh"' :class='login_type=="zh"?"act":""'>账户登录</p>
-				<p @click='login_type="sjh"' :class='login_type=="sjh"?"act":""'>手机号登录</p>
-			</div>
-			<div class='pd' v-show='login_type=="zh"'>
-				<div :class='focusIndex ==0?"input act_i":error1&&error1.length>0?"input error_i":"input"'>
-					<div class='img'>
-						<i :class='focusIndex ==0?"n2":error1&&error1.length>0?"n3":"n1"'></i>
-					</div>
-					<span v-show='focusIndex == 0 && name.length == 0 && !isSupportPlaceholder' @click='getfocus(0)'>请输入账号</span>
-					<input 
-						autofocus="autofocus"
-						autocomplete="off"
-						v-model='name' 
-						:placeholder="isSupportPlaceholder?'请输入账号':''"     
-						@focus="focus(0)"
-						@blur="blur(0)"
-						:class='error1&&error1.length>0?"red":name&&name.length>0?"blue":""'>
-				</div>
-				<p class="errTip">{{error1}}</p>
-				<div :class='focusIndex ==1?"input act_i":error2&&error2.length>0?"input error_i":"input"'>
-					<div class='img'>
-						<i :class='focusIndex ==1?"p2":error2&&error2.length>0?"p3":"p1"'></i>
-					</div>
-					<span v-show='focusIndex == 1 && password.length==0 && !isSupportPlaceholder' @click='getfocus(1)'>请输入密码</span>
-					<input 
-						autocomplete="off"
-						v-model='password' 
-						:placeholder="isSupportPlaceholder?'请输入密码':''"
-						@focus="focus(1)"
-						@blur="blur(1)"
-						type='password'
-						:class='error2&&error2.length>0?"red":password&&password.length>0?"blue":""'>
-				</div>
-				<p class="errTip">{{error2}}</p>
-				<div :class='focusIndex ==2?"input act_i":error3&&error3.length>0?"input error_i":"input"'>
-					<div class='img'>
-						<i :class='focusIndex ==2?"c2":error3&&error3.length>0?"c3":"c1"'>
-						</i>
-					</div>
-					<span v-show='focusIndex == 2 && code.length==0 && !isSupportPlaceholder' @click='getfocus(2)'>请输入验证码</span>
-					<input 
-						autocomplete="off"
-						v-model='code' 
-						:placeholder="isSupportPlaceholder?'请输入验证码':''"
-						@focus="focus(2)"
-						@blur="blur(2)"
-						:class='error3&&error3.length>0?"red code_w":code&&code.length>0?"blue code_w":" code_w"'>
-					<canvas @click="createCode" class='code' id='code'></canvas>
-				</div>
-				<p class="errTip">{{error3}}</p>
-				<div :class='!error1&&error1.length>0 || (error2&&error2.length>0) || 
-					(error3&&error3.length>0) || !name || name.length ==0
-					|| !password || password.length ==0
-					|| !code || code.length ==0?"btn":"btn act_btn"'
-					@click='login'>
-                    登 录
-                </div>
-			</div>
-			<div class='qrcode' v-show='login_type=="sjh"'>
-				<div :class='focusIndex ==0?"input act_i":error4&&error4.length>0?"input error_i":"input"'>
-					<div class='img'>
-						<i :class='focusIndex ==0?"n2":error4&&error4.length>0?"n3":"n1"'></i>
-					</div>
-					<span v-show='focusIndex == 0 && phone.length == 0 && !isSupportPlaceholder' @click='getfocus(0)'>请输入手机号</span>
-					<input 
-						autofocus="autofocus"
-						autocomplete="off"
-						v-model='phone' 
-						:placeholder="isSupportPlaceholder?'请输入手机号':''"     
-						@focus="focus(0)"
-						@blur="blur(0)"
-						:class='error4&&error4.length>0?"red":phone&&phone.length>0?"blue":""'>
-				</div>
-				<p class="errTip">{{error4}}</p>
-				<div :class='focusIndex ==1?"input act_i":error5&&error5.length>0?"input error_i":"input"'>
-					<div class='img'>
-						<i :class='focusIndex ==1?"c2":error5&&error5.length>0?"c3":"c1"'>
-						</i>
-					</div>
-					<span v-show='focusIndex == 1 && code1.length==0 && !isSupportPlaceholder' @click='getfocus(1)'>请输入验证码</span>
-					<input 
-						autocomplete="off"
-						v-model='code1' 
-						:placeholder="isSupportPlaceholder?'请输入验证码':''"
-						@focus="focus(1)"
-						@blur="blur(1)"
-						:class='error5&&error5.length>0?"red code_w":code1&&code1.length>0?"blue code_w":" code_w"'>
-					<canvas @click="createCode1" class='code' id='code1'></canvas>
-				</div>
-				<p class="errTip">{{error5}}</p>
-				<div :class='focusIndex ==2?"input act_i":error6&&error6.length>0?"input error_i":"input"'>
-					<div class='img'>
-						<i :class='focusIndex ==2?"d2":error6&&error6.length>0?"d3":"d1"'></i>
-					</div>
-					<span v-show='focusIndex == 2 && msgInfo.length==0 && !isSupportPlaceholder' @click='getfocus(2)'>请输入短信验证码</span>
-					<input 
-						autocomplete="off"
-						v-model='msgInfo' 
-						:placeholder="isSupportPlaceholder?'请输入短信验证码':''"
-						@focus="focus(2)"
-						@blur="blur(2)"
-						:class='error6&&error6.length>0?"red":msgInfo&&msgInfo.length > 0?"blue":""'>
-                    <span :class="senDisable == 0?'msgSpan':'msgSpan1'" @click="getMsgInfo" id="msgSpan">获取验证码</span>
-				</div>
-				<p class="errTip">{{error6}}</p>
-				<div :class='!error4&&error4.length>0 || (error6&&error6.length>0) || 
-					(error5&&error5.length>0) || !phone || phone.length ==0
-					|| !msgInfo || msgInfo.length == 0
-					|| !code1 || code1.length == 0?"btn":"btn act_btn"'
-					@click='login1'>
-                    登 录
-                </div>
-			</div>
-            <div class="wechatIcon">
-                <div class="iconBox"></div>
-                <div class="iconText">微信登录</div>
+        <div class="loginCon">
+            <div class='t'>
+                <!-- <i></i> -->
+                <h1>专业化建材价格信息采集平台</h1>
+                <p>您可以进行相关材料申报，以及价格疑议提交。</p>
             </div>
-			<div class='bottom'>
-				<p @click="findPsw">忘记密码？</p>
-				<p @click='goSignIn'>
-					<img src="../../public/img/signIcon.png" alt="">
-					立即注册
-				</p>
-			</div>
-		</div>
-		<div class='t'>
-			<!-- <i></i> -->
-			<h1>专业化建材价格信息采集平台</h1>
-			<p>您可以进行相关材料申报，以及价格疑议提交。</p>
-		</div>
-
+            <div class='i'>
+                <div class='tab'>
+                    <p @click='login_type="zh"' :class='login_type=="zh"?"act":""'>账户登录</p>
+                    <p @click='login_type="sjh"' :class='login_type=="sjh"?"act":""'>手机号登录</p>
+                </div>
+                <div class='pd' v-show='login_type=="zh"'>
+                    <div :class='focusIndex ==0?"input act_i":error1&&error1.length>0?"input error_i":"input"'>
+                        <div class='img'>
+                            <i :class='focusIndex ==0?"n2":error1&&error1.length>0?"n3":"n1"'></i>
+                        </div>
+                        <span v-show='focusIndex == 0 && name.length == 0 && !isSupportPlaceholder' @click='getfocus(0)'>请输入账号</span>
+                        <input 
+                            autofocus="autofocus"
+                            autocomplete="off"
+                            v-model='name' 
+                            :placeholder="isSupportPlaceholder?'请输入账号':''"     
+                            @focus="focus(0)"
+                            @blur="blur(0)"
+                            :class='error1&&error1.length>0?"red":name&&name.length>0?"blue":""'>
+                    </div>
+                    <p class="errTip">{{error1}}</p>
+                    <div :class='focusIndex ==1?"input act_i":error2&&error2.length>0?"input error_i":"input"'>
+                        <div class='img'>
+                            <i :class='focusIndex ==1?"p2":error2&&error2.length>0?"p3":"p1"'></i>
+                        </div>
+                        <span v-show='focusIndex == 1 && password.length==0 && !isSupportPlaceholder' @click='getfocus(1)'>请输入密码</span>
+                        <input 
+                            autocomplete="off"
+                            v-model='password' 
+                            :placeholder="isSupportPlaceholder?'请输入密码':''"
+                            @focus="focus(1)"
+                            @blur="blur(1)"
+                            type='password'
+                            :class='error2&&error2.length>0?"red":password&&password.length>0?"blue":""'>
+                    </div>
+                    <p class="errTip">{{error2}}</p>
+                    <div :class='focusIndex ==2?"input act_i":error3&&error3.length>0?"input error_i":"input"'>
+                        <div class='img'>
+                            <i :class='focusIndex ==2?"c2":error3&&error3.length>0?"c3":"c1"'>
+                            </i>
+                        </div>
+                        <span v-show='focusIndex == 2 && code.length==0 && !isSupportPlaceholder' @click='getfocus(2)'>请输入验证码</span>
+                        <input 
+                            autocomplete="off"
+                            v-model='code' 
+                            :placeholder="isSupportPlaceholder?'请输入验证码':''"
+                            @focus="focus(2)"
+                            @blur="blur(2)"
+                            :class='error3&&error3.length>0?"red code_w":code&&code.length>0?"blue code_w":" code_w"'>
+                        <canvas @click="createCode" class='code' id='code'></canvas>
+                    </div>
+                    <p class="errTip">{{error3}}</p>
+                    <div :class='!error1&&error1.length>0 || (error2&&error2.length>0) || 
+                        (error3&&error3.length>0) || !name || name.length ==0
+                        || !password || password.length ==0
+                        || !code || code.length ==0?"btn":"btn act_btn"'
+                        @click='login'>
+                        登 录
+                    </div>
+                </div>
+                <div class='qrcode' v-show='login_type=="sjh"'>
+                    <div :class='focusIndex ==0?"input act_i":error4&&error4.length>0?"input error_i":"input"'>
+                        <div class='img'>
+                            <i :class='focusIndex ==0?"n2":error4&&error4.length>0?"n3":"n1"'></i>
+                        </div>
+                        <span v-show='focusIndex == 0 && phone.length == 0 && !isSupportPlaceholder' @click='getfocus(0)'>请输入手机号</span>
+                        <input 
+                            autofocus="autofocus"
+                            autocomplete="off"
+                            v-model='phone' 
+                            :placeholder="isSupportPlaceholder?'请输入手机号':''"     
+                            @focus="focus(0)"
+                            @blur="blur(0)"
+                            :class='error4&&error4.length>0?"red":phone&&phone.length>0?"blue":""'>
+                    </div>
+                    <p class="errTip">{{error4}}</p>
+                    <div :class='focusIndex ==1?"input act_i":error5&&error5.length>0?"input error_i":"input"'>
+                        <div class='img'>
+                            <i :class='focusIndex ==1?"c2":error5&&error5.length>0?"c3":"c1"'>
+                            </i>
+                        </div>
+                        <span v-show='focusIndex == 1 && code1.length==0 && !isSupportPlaceholder' @click='getfocus(1)'>请输入验证码</span>
+                        <input 
+                            autocomplete="off"
+                            v-model='code1' 
+                            :placeholder="isSupportPlaceholder?'请输入验证码':''"
+                            @focus="focus(1)"
+                            @blur="blur(1)"
+                            :class='error5&&error5.length>0?"red code_w":code1&&code1.length>0?"blue code_w":" code_w"'>
+                        <canvas @click="createCode1" class='code' id='code1'></canvas>
+                    </div>
+                    <p class="errTip">{{error5}}</p>
+                    <div :class='focusIndex ==2?"input act_i":error6&&error6.length>0?"input error_i":"input"'>
+                        <div class='img'>
+                            <i :class='focusIndex ==2?"d2":error6&&error6.length>0?"d3":"d1"'></i>
+                        </div>
+                        <span v-show='focusIndex == 2 && msgInfo.length==0 && !isSupportPlaceholder' @click='getfocus(2)'>请输入短信验证码</span>
+                        <input 
+                            autocomplete="off"
+                            v-model='msgInfo' 
+                            :placeholder="isSupportPlaceholder?'请输入短信验证码':''"
+                            @focus="focus(2)"
+                            @blur="blur(2)"
+                            :class='error6&&error6.length>0?"red":msgInfo&&msgInfo.length > 0?"blue":""'>
+                        <span :class="senDisable == 0?'msgSpan':'msgSpan1'" @click="getMsgInfo" id="msgSpan">获取验证码</span>
+                    </div>
+                    <p class="errTip">{{error6}}</p>
+                    <div :class='!error4&&error4.length>0 || (error6&&error6.length>0) || 
+                        (error5&&error5.length>0) || !phone || phone.length ==0
+                        || !msgInfo || msgInfo.length == 0
+                        || !code1 || code1.length == 0?"btn":"btn act_btn"'
+                        @click='login1'>
+                        登 录
+                    </div>
+                </div>
+                <div class="wechatIcon">
+                    <div class="iconBox"></div>
+                    <div class="iconText">微信登录</div>
+                </div>
+                <div class='bottom'>
+                    <p @click="findPsw">忘记密码？</p>
+                    <p @click='goSignIn'>
+                        <img src="../../public/img/signIcon.png" alt="">
+                        立即注册
+                    </p>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 </template>
@@ -273,10 +274,12 @@ export default {
 			this.checkCode1 = code;//把code值赋给验证码  
 		},
 		async login() {
-			if(!this.check()) return
+            // if(!this.check()) return
+            this.$router.push('/onlinereport')
         },
 		async login1() {
-			if(!this.check1()) return
+            // if(!this.check1()) return
+            this.$router.push('/onlinereport')
 		},
 		check() {
             if(!this.name || this.name.length==0) {
@@ -396,21 +399,21 @@ input
     border none
     outline 0
     appearance none
-.loginPage
-    background #ddd
 .loginMain
     width 100%
     height 620px
     background url('../../public/img/loginbg.jpg') no-repeat
     background-size 100% 100%
-    position relative
+.loginCon
+    width 1200px
+    height 620px
+    margin 0 auto
+    display flex
+    justify-content space-between
+    align-items center
 .i
     width 380px
     background #fff
-    position absolute
-    top 50%
-    margin-top -260px
-    right 18%
 .tab
     padding 40px 0 36px 0
     box-sizing border-box
@@ -584,10 +587,7 @@ span.msgSpan1
         justify-content flex-end
         color #2E7BFF
 .t
-    position absolute
     color #fff
-    top 230px
-    left 18%
     h1
         font-size 32px
         font-family MicrosoftYaHei-Bold
