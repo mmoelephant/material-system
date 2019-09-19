@@ -136,6 +136,27 @@
             </div>
         </div>
     </div>
+    <el-dialog title="新用户指引" :visible.sync="dialog" width="820px" class="procolDialog" :before-close="handleClose" :close-on-click-modal="modalClose" :show-close="showClose">
+        <div class="dialogCon">
+            <p>在您注册成为行列用户的过程中，您需要完成我们的注册流程并通过点击同意的形式在线签署一下协议，请您务必仔细阅读、
+                充分理解协议中的条款内容后再点击同意（尤其是一下粗体并下划线标识的条款，因为这些条款可能会明确您应履行的义务或对您的权利有所限制）：
+            </p>
+            <p class="procolTitle">平台使用流程及规则<span class="version">版本日期：2019.5.28</span></p>
+            <div class="procol">
+                <div>
+                    <p class="">一、总则</p>
+                    <p>1.1 保宝网的所有权和运营权归深圳市永兴元科技有限公司所有。</p>
+                    <p>1.2 用户在注册之前，应当仔细阅读本协议，并同意遵守本协议后方可成为注册用户。一旦注册成功，则用户与
+                        保宝网之间自动形成协议关系，用户应当受本协议的约束。用户在使用特殊的服务或产品时，应当同意接受相关协议后方能使用。
+                    </p>
+                    <p>1.3 本协议则可由保宝网随时更新，用户应当及时关注并同意本站不承担通知义务。本站的通知、公告、声明或其它类似内容是本协议的一部分。</p>
+                </div>
+            </div>
+        </div>
+        <span slot="footer" class="dialog-footer">
+            <el-button type="primary" @click="agree" class="agreeBtn">知道了</el-button>
+        </span>
+    </el-dialog>
 </div>
 </template>
 <script>
@@ -164,9 +185,20 @@ export default {
             senDisable:0,
             sendStatus:0,
             countdown:60,
+            dialog:true,
+            modalClose:false,
+            showClose:true,
 		}
 	},
 	methods:{
+        handleClose(done) {
+            this.$confirm('确认关闭？').then(_ => {
+                this.$router.push({name:'home',query:{}})
+            }).catch(_ => {});
+        },
+        agree(){
+            this.dialog = false
+        },
 		goSignIn(){
 			this.$router.push({name:'signIn',query:{}})
 		},
@@ -595,4 +627,30 @@ span.msgSpan1
         margin-bottom 16px
     p
         font-size 14px
+
+.dialogCon
+    height 100%
+    padding 0 20px
+    box-sizing border-box
+    overflow auto
+
+.procolTitle
+    margin-top 36px
+    font-size 20px
+    font-weight bold
+    line-height 20px
+    position relative
+
+span.version
+    position absolute
+    left auto
+    right 0
+    font-size 16px
+    font-weight normal
+span.dialog-footer
+    left 50%
+    margin-left -100px
+    
+.procol
+    margin-top 40px
 </style>

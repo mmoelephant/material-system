@@ -71,24 +71,6 @@ export default {
     display flex
     justify-content space-between
     align-items center
-.bigTitle
-    margin-bottom 10px
-    font-size 22px
-    color #666666
-.desc
-    font-size 12px
-    color #a6a6a6
-.backIcon
-    background url(../../public/img/backIcon.png) no-repeat left center
-    padding-left 18px
-    box-sizing border-box
-    font-size 12px
-    color #2E7BFF
-    font-weight bold
-    text-decoration underline
-    cursor pointer
-.backIcon:hover
-    color #609BFF
 .resTip
     display flex
     align-items center

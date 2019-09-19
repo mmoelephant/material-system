@@ -247,25 +247,6 @@ export default {
     box-shadow 0px 2px 4px 0px rgba(0, 0, 0, 0.12)
     margin-left 20px
     flex-shrink 0
-.bigTitle
-    margin-bottom 10px
-    font-size 22px
-    color #666666
-.desc
-    font-size 12px
-    color #a6a6a6
-.userInfoBox
-    padding 50px 0 60px 40px
-    box-sizing border-box
-
-.infobox1,.infobox2
-    display flex
-.infobox2
-    margin-top 30px
-.infoTitle
-    font-size 14px
-    color #333333
-    font-weight bold
 
 .dialogCon
     height 100%
@@ -287,35 +268,6 @@ export default {
     font-weight normal
 .procol
     margin-top 40px
-
-.uploadTip
-    margin-top 14px
-    font-size 12px
-    color #A6A6A6
-    line-height 22px
-.uploadTip1
-    margin-top 14px
-    font-size 12px
-    color #FF8560
-    line-height 22px
-.uploadTip2
-    font-size 12px
-    color #a6a6a6
-    line-height 22px
-.uploadTip3
-    background url(../../public/img/down1.png) no-repeat left center
-    padding-left 20px
-    box-sizing border-box
-    margin-top 14px
-    font-size 12px
-    color #333333
-    font-weight bold
-    line-height 22px
-    text-decoration underline
-    cursor pointer
-.uploadTip3:hover
-    background url(../../public/img/down2.png) no-repeat left center
-    color #2E7BFF
 
 .save-btn
     width 300px

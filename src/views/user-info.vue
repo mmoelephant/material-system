@@ -21,7 +21,7 @@
                                     <img v-if="imageUrl" :src="imageUrl" class="avatar">
                                     <i v-else class="el-icon-plus avatar-uploader-icon"></i>
                                 </el-upload>
-                                <p style='font-size:12px;color:#A6A6A6;line-height:16px'>*请以JPEG、PNG格式上传图片，图片大小控制在100k以内</p>
+                                <p class="uploadTip">*请以JPEG、PNG格式上传图片，图片大小控制在100k以内</p>
                             </el-form-item>
                             <el-form-item label="法人代表">
                                 <el-input v-model="form.region" placeholder="请输入法人姓名"></el-input>
@@ -95,16 +95,6 @@ export default {
     box-shadow 0px 2px 4px 0px rgba(0, 0, 0, 0.12)
     margin-left 20px
     flex-shrink 0
-.bigTitle
-    margin-bottom 10px
-    font-size 22px
-    color #666666
-.desc
-    font-size 12px
-    color #a6a6a6
-.userInfoBox
-    padding 50px 0 60px 40px
-    box-sizing border-box
 .save-btn
     width 120px
     margin 40px 0 0 130px
@@ -122,5 +112,4 @@ export default {
 .ui
     .el-input__inner,.el-textarea__inner
         width 400px
-        // border-color #D8DBDF
 </style>

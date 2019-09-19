@@ -10,6 +10,199 @@ ul,li
     padding 0
     margin 0
     list-style none
+
+.userInfoBox
+    padding 50px 0 60px 40px
+    box-sizing border-box
+
+.bigTitle
+    margin-bottom 10px
+    font-size 22px
+    color #666666
+.desc
+    font-size 12px
+    color #a6a6a6
+
+.infobox1,.infobox2
+    display flex
+.infobox2
+    margin-top 30px
+.infoTitle
+    font-size 14px
+    color #333333
+    font-weight bold
+
+.uploadTip
+    margin-top 14px
+    font-size 12px
+    color #A6A6A6
+    line-height 22px
+.uploadTip1
+    margin-top 14px
+    font-size 12px
+    color #FF8560
+    line-height 22px
+.uploadTip2
+    font-size 12px
+    color #a6a6a6
+    line-height 22px
+.uploadTip3
+    background url(../../public/img/down1.png) no-repeat left center
+    padding-left 20px
+    box-sizing border-box
+    margin-top 14px
+    font-size 12px
+    color #333333
+    font-weight bold
+    line-height 22px
+    text-decoration underline
+    cursor pointer
+.uploadTip3:hover
+    background url(../../public/img/down2.png) no-repeat left center
+    color #2E7BFF
+
+.backIcon
+    background url(../../public/img/backIcon.png) no-repeat left center
+    padding-left 18px
+    box-sizing border-box
+    font-size 12px
+    color #2E7BFF
+    font-weight bold
+    text-decoration underline
+    cursor pointer
+.backIcon:hover
+    color #609BFF
+
+
+.tab
+    background #fff
+    padding 14px 0 16px 0
+    box-sizing borde-box
+    display flex
+    justify-content space-between
+    align-items center
+    .t
+        display flex
+    .ref
+        display flex
+        align-items center
+        input
+            width 235px
+            height 32px
+            border 1px solid #E6E6E6
+            box-sizing border-box
+            outline none
+            text-indent 10px
+        div
+            width 40px
+            height 32px
+            background url(../../public/img/searchIcon1.png) no-repeat center
+            box-sizing border-box
+            border 1px solid #E6E6E6
+            border-left none
+            cursor pointer
+        div:hover
+            background #2E7BFF url(../../public/img/searchIcon2.png) no-repeat center
+            border none
+        
+    
+.tab .t div
+    padding 0 20px
+    border-right 1px solid #E6E6E6
+    box-sizing border-box
+    font-size 14px
+    color #666
+    line-height 14px
+    text-align center
+    cursor pointer
+.tab .t div:hover
+    color #333
+.tab .t div:last-of-type
+    border none
+.tab .t div:first-of-type
+    padding-left 0
+.tab div.active
+    color #2E7BFF
+
+.num
+    color #FF2C22
+    font-size 14px
+    font-family MicrosoftYaHei-Bold
+    font-weight bold
+
+.askPriceBox
+    background #ffffff
+    font-size 12px
+.askTitle
+    height 36px
+    background #f5f5f5
+    display flex
+    font-size 12px
+    color #a6a6a6
+    font-weight bold
+    line-height 36px
+    text-align center
+
+.askList
+    height 50px
+    border-bottom 1px #e6e6e6 solid
+    box-sizing border-box
+    font-size 12px
+    color #666
+    line-height 50px
+    text-align center
+    display flex
+    div
+        padding 0 10px
+        box-sizing border-box
+        overflow hidden
+        text-overflow ellipsis
+        white-space nowrap
+.askList:hover
+    background #fafafa
+
+.editTwo
+    color #333
+.dele
+    margin-left 20px
+.see:hover,.editTwo:hover,.dele:hover
+    color #2E7BFF
+    cursor pointer
+
+.noData
+    display flex
+    justify-content center
+    align-items center
+    margin-top 200px
+
+.tips
+    margin-left 30px
+
+.tip1
+    font-size 18px
+    color #A5A9BD
+    font-weight bold
+    line-height 18px
+.tip2
+    margin 10px 0 20px 0
+    font-size 12px
+    color #a6a6a6
+    font-weight normal
+    line-height 12px
+.tipBtn
+    width 100px
+    height 30px
+    border 1px #d9d9d9 solid
+    box-sizing border-box
+    font-size 14px
+    color #666666
+    line-height 30px
+    text-align center
+    cursor pointer
+.tipBtn:hover
+    background #f5f5f5
+
+
 ::-webkit-input-placeholder
 	color #ccc
 :-moz-placeholder
@@ -62,6 +255,14 @@ ul,li
 .el-button.el-button--primary.el-button--small:hover
     background #609BFF !important
 
+.el-date-editor
+    .el-input__inner
+        width 200px
+        height 32px
+        border-radius 0
+    .el-input__icon.el-icon-date
+        line-height 32px
+
 .procolDialog
     .el-dialog
         height 600px
@@ -108,3 +309,4 @@ ul,li
                 background #2E7BFF
             .el-button.agreeBtn:hover
                 background-color #609BFF
+

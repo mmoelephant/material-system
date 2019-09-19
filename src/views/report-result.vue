@@ -22,7 +22,6 @@
                         </div>
                         <div class='ref'>
                             <input type="text" placeholder="请输入公司名称">
-                            <!-- <img src="../../public/img/searchIcon1.png" alt=""> -->
                             <div></div>
                         </div>
                     </div>
@@ -119,86 +118,7 @@ export default {
     box-shadow 0px 2px 4px 0px rgba(0, 0, 0, 0.12)
     margin-left 20px
     flex-shrink 0
-.bigTitle
-    margin-bottom 10px
-    font-size 22px
-    color #666666
-.desc
-    font-size 12px
-    color #a6a6a6
-.tab
-    background #fff
-    padding 14px 0 16px 0
-    // border 1px green solid
-    box-sizing borde-box
-    display flex
-    justify-content space-between
-    align-items center
-    .t
-        display flex
-    .ref
-        display flex
-        align-items center
-        input
-            width 235px
-            height 32px
-            border 1px solid #E6E6E6
-            box-sizing border-box
-            outline none
-            text-indent 10px
-        div
-            width 40px
-            height 32px
-            background url(../../public/img/searchIcon1.png) no-repeat center
-            box-sizing border-box
-            border 1px solid #E6E6E6
-            border-left none
-            cursor pointer
-            // img
-            //     width 16px
-            //     height 16px
-            //     margin 8px 12px
-        div:hover
-            background #2E7BFF url(../../public/img/searchIcon2.png) no-repeat center
-            border none
-        
-    
-.tab .t div
-    padding 0 20px
-    border-right 1px solid #E6E6E6
-    box-sizing border-box
-    font-size 14px
-    color #666
-    line-height 14px
-    text-align center
-    cursor pointer
-.tab .t div:hover
-    color #333
-.tab .t div:last-of-type
-    border none
-.tab .t div:first-of-type
-    padding-left 0
-.tab div.active
-    color #2E7BFF
 
-.num
-    color #FF2C22
-    font-size 14px
-    font-family MicrosoftYaHei-Bold
-    font-weight bold
-
-.askPriceBox
-    background #ffffff
-    font-size 12px
-.askTitle
-    height 36px
-    background #f5f5f5
-    display flex
-    font-size 12px
-    color #a6a6a6
-    font-weight bold
-    line-height 36px
-    text-align center
 .tt1,.item_i1
     width 16%
 .tt2,.item_i2
@@ -212,23 +132,7 @@ export default {
 .tt6,.item_i6
     width 20%
 
-.askList
-    height 50px
-    border-bottom 1px #e6e6e6 solid
-    box-sizing border-box
-    font-size 12px
-    color #666
-    line-height 50px
-    text-align center
-    display flex
-    div
-        padding 0 10px
-        box-sizing border-box
-        overflow hidden
-        text-overflow ellipsis
-        white-space nowrap
-.askList:hover
-    background #fafafa
+
 .item_i5.item_i5_1
     color #089FE5
 .item_i5.item_i5_2
@@ -238,53 +142,4 @@ export default {
 .item_i5.item_i5_4
     color #E56244
 
-.editTwo
-    color #333
-.dele
-    margin-left 20px
-.see:hover,.editTwo:hover,.dele:hover
-    color #2E7BFF
-    cursor pointer
-
-.noData
-    display flex
-    justify-content center
-    align-items center
-    margin-top 200px
-
-.tips
-    margin-left 30px
-
-.tip1
-    font-size 18px
-    color #A5A9BD
-    font-weight bold
-    line-height 18px
-.tip2
-    margin 10px 0 20px 0
-    font-size 12px
-    color #a6a6a6
-    font-weight normal
-    line-height 12px
-.tipBtn
-    width 100px
-    height 30px
-    border 1px #d9d9d9 solid
-    box-sizing border-box
-    font-size 14px
-    color #666666
-    line-height 30px
-    text-align center
-    cursor pointer
-.tipBtn:hover
-    background #f5f5f5
-</style>
-<style lang="stylus">
-.el-date-editor
-    .el-input__inner
-        width 200px
-        height 32px
-        border-radius 0
-    .el-input__icon.el-icon-date
-        line-height 32px
 </style>
