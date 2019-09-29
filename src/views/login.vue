@@ -111,7 +111,7 @@
                             @focus="focus(2)"
                             @blur="blur(2)"
                             :class='error6&&error6.length>0?"red":msgInfo&&msgInfo.length > 0?"blue":""'>
-                        <span :class="senDisable == 0?'msgSpan':'msgSpan1'" @click="getMsgInfo" id="msgSpan">获取验证码</span>
+                        <span :class="senDisable == 0?'msgSpan':'msgSpan1'" @click="getMsgInfo" id="msgSpan">发送验证码</span>
                     </div>
                     <p class="errTip">{{error6}}</p>
                     <div :class='!error4&&error4.length>0 || (error6&&error6.length>0) || 
